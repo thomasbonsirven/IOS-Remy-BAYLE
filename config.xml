@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns       = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "0"
+        versionCode = ""
+        version     = "0.1" >
+
+	<name>Rémy BAYLE</name>
+
+	<description>Rémy BAYLE, Le courte manche chrétien qui remet satan à sa place... sous nos pieds. Amen</description>
+
+	<author href="Aucun" email="thomasbonsirven@gmail.com">BONSIRVEN Thomas</author>
+
+	<gap:platform name="ios" />
+
+	<preference name="DisallowOverscroll" value="true" />
+	<preference name="webviewbounce" value="false" />
+
+	<!-- PhoneGap plugin declaration -->
+	<plugin name="cordova-plugin-inappbrowser" source="npm" />
+	<plugin name="cordova-plugin-network-information" source="npm" />
+	<plugin name="cordova-plugin-splashscreen" source="npm" />
+	<plugin name="cordova-plugin-device" source="npm" />
+	<plugin name="cordova-plugin-statusbar" source="npm" />
+
+	<!-- SplashScreen configuration -->
+	<preference name="AutoHideSplashScreen" value="false" />
+	<preference name="ShowSplashScreenSpinner" value="false" />
+	<gap:config-file platform="ios" parent="UIStatusBarHidden"><true/></gap:config-file>
+	<gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance"><false/></gap:config-file>
+	
+	<!-- Icons and Splashscreens declaration -->
+
+	https://feuetgloire.com/wp-content/uploads/2016/04/image.jpeg
+</widget>

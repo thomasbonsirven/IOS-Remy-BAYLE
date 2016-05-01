@@ -1,0 +1,29 @@
+<!--
+ * Content is enclosed in <div id="app-content-wrapper"><div id="app-screen"></div></div>
+-->
+
+<div id="content" class="content list-template">
+
+		<div id="list-title" class="list-title"><div><%= list_title %></div></div>
+
+	<% if(posts.length){ %>
+
+		<% _.each( posts, function( post ){ %>
+
+			<div class="content-item">
+				<a href="<%= TemplateTags.getPostLink(post.id) %>">
+					<% if( post.thumbnail.src && post.thumbnail.src.length ){ %>
+						<div class="content-thumbnail"><div style="background:url(<%= post.thumbnail.src %>);background-size:cover;"></div></div>
+					<% } %>	
+					<h2><span><%= post.title %></span></h2>
+					<div class="content-excerpt"><%= post.excerpt %></div>
+				</a>
+			</div>
+
+		<% }); %>
+
+	<% }else{ %>
+		<div class='content-message'>No post found</div>
+	<% } %>
+
+</div>

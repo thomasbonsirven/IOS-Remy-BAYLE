@@ -1,0 +1,51 @@
+<!--
+ * Content is enclosed in <div id="app-content-wrapper"><div id="app-screen"></div></div>
+-->
+
+<div id="content" class=" content single-template">
+
+	<div class="post-title">
+		<% if(  post.thumbnail && post.thumbnail.src && post.thumbnail.src.length ){ %>
+			<div class="post-thumbnail" style="background-image:url(<%= post.thumbnail.src %>);background-size:cover;"></div>
+		<% } %>	
+		<h1>
+			<%= post.title %>
+		</h1>
+	</div>
+
+	<div class="single-content">
+
+		<%= post.content %>
+
+		<% if ( post.post_type == 'swapi_films' ){ %>
+			<% if ( post.characters.length ){ %>
+				<h3>Characters</h3>
+				<ul>
+				<% _.each( post.characters, function( people_id ) { %>
+					<% var character = App.getItem( parseInt(people_id) ); %>
+					<% if ( character ) { %>				
+						<li><a href="#single/posts/<%= people_id %>"><%= character.title %></a></li>
+					<% } %>
+				<% } ); %>
+				</ul>
+			<% } %>	
+
+		<% } else if ( post.post_type == 'swapi_people' ){ %>
+                        <% if ( post.films.length ){ %>
+                                <h3>Films</h3>
+                                <ul>
+                                <% _.each( post.films, function( film_id ) { %>
+                                        <% var film = App.getItem( parseInt(film_id) ); %>
+                                        <% if ( film ) { %>
+                                                <li><a href="#single/posts/<%= film_id %>"><%= film.title %></a></li>
+                                        <% } %>
+                                <% } ); %>
+                                </ul>
+                        <% } %>
+
+                <% } %>
+
+
+	</div>
+
+</div>
